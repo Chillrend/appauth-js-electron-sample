@@ -30,9 +30,7 @@ interface SnackBarOptions {
 
 interface UserInfo {
   name: string;
-  given_name: string;
-  family_name: string;
-  picture: string;
+  email: string;
 }
 
 export class App {
@@ -69,7 +67,7 @@ export class App {
     this.fetchUserInfo.addEventListener('click', () => {
       this.authFlow.performWithFreshTokens().then(accessToken => {
         let request =
-            new Request('https://www.googleapis.com/oauth2/v3/userinfo', {
+            new Request('https://auth.pnj.ac.id/userinfo', {
               headers: new Headers({'Authorization': `Bearer ${accessToken}`}),
               method: 'GET',
               cache: 'no-cache'
@@ -116,7 +114,7 @@ export class App {
     this.handleSignIn.textContent = SIGN_OUT;
     this.fetchUserInfo.style.display = '';
     if (this.userInfo) {
-      this.userProfileImage.src = `${this.userInfo.picture}?sz=96`;
+      this.userProfileImage.src = `https://ui-avatars.com/api?name=${this.userInfo.name}`;
       this.userName.textContent = this.userInfo.name;
       this.showSnackBar(
           {message: `Welcome ${this.userInfo.name}`, timeout: 4000});

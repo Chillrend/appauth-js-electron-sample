@@ -52,13 +52,13 @@ export class AuthStateEmitter extends EventEmitter {
 const requestor = new NodeRequestor();
 
 /* an example open id connect provider */
-const openIdConnectUrl = "https://accounts.google.com";
+const openIdConnectUrl = "https://auth.pnj.ac.id";
 
 /* example client configuration */
 const clientId =
-  "511828570984-7nmej36h9j2tebiqmpqh835naet4vci4.apps.googleusercontent.com";
+  "d3927f75-909e-4397-9860-46fdd9157e6c";
 const redirectUri = "http://127.0.0.1:8000";
-const scope = "openid";
+const scope = "openid offline";
 
 export class AuthFlow {
   private notifier: AuthorizationNotifier;
@@ -82,7 +82,7 @@ export class AuthFlow {
     // set a listener to listen for authorization responses
     // make refresh and access token requests.
     this.notifier.setAuthorizationListener((request, response, error) => {
-      log("Authorization request complete ", request, response, error);
+      log("Authorization request completes ", request, response, error);
       if (response) {
         let codeVerifier: string | undefined;
         if(request.internal && request.internal.code_verifier) {
