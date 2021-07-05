@@ -1,38 +1,43 @@
-# AppAuth-JS + Electron
+# Penggunaan SSO PNJ di Aplikasi Desktop
 
-![AppAuth-JS + Electron](https://rawgit.com/googlesamples/appauth-js-electron-sample/master/logo.svg)
+Aplikasi ini merupakan aplikasi desktop yang dibuat menggunakan electro, dan menggunakan library [AppAuth-JS](https://github.com/openid/AppAuth-JS) untuk flow Open ID Connect.
 
-This is an Electron Application, which uses the [AppAuth-JS](https://github.com/openid/AppAuth-JS) library.
-
-Please note that this is not an official Google product.
 
 ## Development
 
-This application has been written with [TypeScript](https://typescriptlang.org).
+Aplikasi ini dibuat dengan menggunakan bahasa pemrograman [TypeScript](https://typescriptlang.org).
 
-### Setup
 
-* Install the latest version of [Node](https://nodejs.org/en/).
+## Quick Start
+
+Karena dasar dari protokol OAuth 2.0 menggunakan browser redirect, maka aplikasi desktop dapat menggunakan beberapa library user agent yang dapat mengalihkan user ke SSO PNJ.
+
+Client yang akan digunakan untuk aplikasi desktop tidak memiliki `client_secret`
+```dotenv
+CLIENT_ID=d3927f75-909e-xxxx-46fdd9157e6c
+```
+
+Karena tidak memiliki `client_secret` maka mohon dijaga kerahasian `client_id` yang Anda dapatkan.
+
+### Menjalankan Aplikasi Demo Ini
+
+* Install versi terbaru dari [Node](https://nodejs.org/en/) (atau melalui
   [NVM](https://github.com/creationix/nvm)
-  (Node Version Manager is highly recommended).
+  Node Version Manager).
 
-* Use `nvm install` to install the recommended Node.js version.
-
-* Download the latest version of Visual Studio Code from
-  [here](https://code.visualstudio.com/).
+* Gunakan `nvm install` untuk menginstall versi node yang direkomendasikan.
 
 * Install [Yarn](https://yarnpkg.com/en/docs/install) package manager.
 
-### Provision Dependencies
+### Instalasi dependency
+* `yarn install` atau `npm install` untuk instalasi dependency (terdapat dalam `package.json`).
 
-* `yarn install` or `npm install` to provision all the package depencies (from the folder that contains `package.json`).
-
-Thats it! You are now ready to start.
+Anda dapat memulai aplikasi ini sekarang.
 
 ### Development Workflow
 
-This project has a few scripts to help you with your development workflow.
+Jalankan script berikut untuk menjalankan program.
 
-* `yarn run dev` or `npm run-script dev` will run the Electron application. This will also start the Typescript compiler in `watch` mode, and will automatically recompile your application as you start to make changes. Just reload the electron application to see your changes.
+* `yarn run dev` atau `npm run-script dev` akan menjalankan aplikasi ini. Script ini juga akan memulai compiler TypeScript dalam mode `watch`, dan secara otomatis akan meng-compile ulang aplikasi saat Anda membuat perubahan. Cukup reload aplikasi elektron untuk melihat perubahan yang Anda buat.
 
-* `yarn start` or `npm start` is to start the Electron application (without setting up watches that monitor for changes).
+* `yarn start` atau `npm start` untuk menjalankan aplikasi secara normal.
