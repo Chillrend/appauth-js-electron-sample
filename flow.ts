@@ -56,7 +56,7 @@ const openIdConnectUrl = "https://auth.pnj.ac.id";
 
 /* example client configuration */
 const clientId =
-  "d3927f75-909e-4397-9860-46fdd9157e6c";
+  "20f37cac-63b6-4e28-8ef8-74a1e8bc77f4";
 const redirectUri = "http://127.0.0.1:8000";
 const scope = "openid offline";
 
